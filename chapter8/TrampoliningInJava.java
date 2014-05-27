@@ -21,7 +21,7 @@ public class TrampoliningInJava {
     }
 
     private static long classicFactorial(long n, long accumulate) {
-        return n == 1 ? 1 : classicFactorial(n - 1, n * accumulate);
+        return n == 1 ? accumulate : classicFactorial(n - 1, n * accumulate);
     }
 
     private static BigInteger streamFactorial(long n) {
@@ -30,7 +30,7 @@ public class TrampoliningInJava {
 
     public static void main(String[] args) {
         // Classic factorial - with stack overflow
-//        System.out.println(classicFactorial(15000, 1));
+        // System.out.println(classicFactorial(15000, 1));
 
         // Factorial with a trampoline
         Consumer<Supplier<?>> trampoline = supplier ->
